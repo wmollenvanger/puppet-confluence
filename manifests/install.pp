@@ -101,4 +101,18 @@ class confluence::install {
     refreshonly => true,
     subscribe   => User[$confluence::user],
   }
+
+  if $confluence::db == 'mysql' and $confluence::mysql_connector_manage {
+    notify { 'installing mysql JDBC driver': }
+    if $confluence::staging_or_deploy == 'staging' {
+      class { '::confluence::mysql_connector':
+        require => Staging::Extract[$file],
+      }
+    } elsif $confluence::staging_or_deploy == 'deploy' {
+      class { '::confluence::mysql_connector':
+        require => Deploy::File[$file],
+      }
+    }
+    contain ::confluence::mysql_connector
+  }
 }
