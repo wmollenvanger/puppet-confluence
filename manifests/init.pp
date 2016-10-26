@@ -24,6 +24,28 @@ class confluence (
   $manage_user  = true,
   $shell        = '/bin/true',
 
+  # Database Settings
+  # not fully used atm
+  $db                      = 'mysql',
+  $dbuser                  = 'confluence',
+  $dbpassword              = 'mypassword',
+  $dbserver                = 'localhost',
+  $dbname                  = 'confluence',
+  $dbport                  = '3306',
+  #$dbdriver                = 'org.postgresql.Driver',
+  #$dbtype                  = 'postgres72',
+  #$dburl                   = undef,
+  #$poolsize                = '20',
+  #$dbschema                = 'public',
+
+  # MySQL Connector Settings
+  $mysql_connector_manage  = true,
+  $mysql_connector_version = '5.1.40',
+  $mysql_connector_product = 'mysql-connector-java',
+  $mysql_connector_format  = 'tar.gz',
+  $mysql_connector_install = '/opt/MySQL-connector',
+  $mysql_connector_URL     = 'http://dev.mysql.com/get/Downloads/Connector-J/',
+
   # Misc Settings
   $download_url = 'http://www.atlassian.com/software/confluence/downloads/binary',
   $checksum     = undef,
