@@ -36,6 +36,8 @@ class confluence::mysql_connector (
   file { "${confluence::webappdir}/confluence/WEB-INF/lib/mysql-connector-java.jar":
     source => "${installdir}/${product}-${version}/${product}-${version}-bin.jar",
     ensure => present,
+    owner  => $confluence::user,
+    group => $confluence::group,
   }
 
 # file { "${confluence::webappdir}/confluence/WEB-INF/lib/mysql-connector-java.jar":

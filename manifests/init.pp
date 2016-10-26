@@ -25,7 +25,9 @@ class confluence (
   $shell        = '/bin/true',
 
   # Database Settings
-  # not fully used atm
+  # Database not managed by module but eventually could be created
+  # with these params. Currently only used for installing mysql jdbc
+  # driver when $db == mysql and $mysql_connector_manage  == true (below)
   $db                      = 'mysql',
   $dbuser                  = 'confluence',
   $dbpassword              = 'mypassword',
@@ -39,7 +41,7 @@ class confluence (
   #$dbschema                = 'public',
 
   # MySQL Connector Settings
-  $mysql_connector_manage  = true,
+  $mysql_connector_manage  = false,
   $mysql_connector_version = '5.1.40',
   $mysql_connector_product = 'mysql-connector-java',
   $mysql_connector_format  = 'tar.gz',
