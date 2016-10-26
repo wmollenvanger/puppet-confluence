@@ -149,6 +149,7 @@ confluence::tomcat_proxy:
 * `confluence::service`: Manage the Confluence service
 * `confluence::facts`: Class to get the running version of confluence
 * `confluence::params`: Default params
+* `confluence::mysql_connector`: Installs MySql connector
 
 ### Parameters
 
@@ -326,6 +327,15 @@ paramater can be used to shut down confluence for upgrades. Defaults to
 ##### `facts_ensure`
 
 Enable external facts for confluence version. Defaults to present.
+
+#### `db`
+
+Database type to use, currently only used for installing mysql jdbc connector.
+Defaults to 'mysql'.
+
+#### `mysql_connector_manage`
+
+Install mysql JDBC connector, default false. db should be 'mysql'
 
 ## Limitations
 
